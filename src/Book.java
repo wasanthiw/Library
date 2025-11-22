@@ -45,8 +45,6 @@ public class Book {
         return ISBN;
     }
 
-}
-
 /**
      * Returns the publication year of the book.
      */
