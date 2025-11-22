@@ -24,4 +24,26 @@ public class Book {
         this.isAvailable = true;
     }
 
+    /**
+     * Returns the title of the book.
+     */
+    public String getTitle() {
+        return title;
+    }
+
+    /**
+     * Returns the author of the book.
+     */
+    public String getAuthor() {
+        return author;
+    }
+
+    /**
+     * Returns the ISBN of the book.
+     */
+    public String getISBN() {
+        return ISBN;
+    }
+
 }
+
