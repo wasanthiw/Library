@@ -47,3 +47,40 @@ public class Book {
 
 }
 
+/**
+     * Returns the publication year of the book.
+     */
+    public int getPublicationYear() {
+        return publicationYear;
+    }
+
+    /**
+     * Returns true if the book is available, otherwise false.
+     */
+    public boolean isAvailable() {
+        return isAvailable;
+    }
+
+    /**
+     * Sets the availability status of the book.
+     *
+     * @param available TRUE if the book is available, FALSE if checked out.
+     */
+    public void setAvailable(boolean available) {
+        this.isAvailable = available;
+    }
+
+    /**
+     * Returns a formatted string containing the book's details.
+     */
+    @Override
+    public String toString() {
+        String status = isAvailable ? "Available" : "Checked Out";
+        return "Title: " + title +
+               "\nAuthor: " + author +
+               "\nISBN: " + ISBN +
+               "\nPublication Year: " + publicationYear +
+               "\nStatus: " + status;
+    }
+}
+
