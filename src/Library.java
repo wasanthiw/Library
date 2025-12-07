@@ -22,6 +22,22 @@ public class Library {
 
     // METHODS
 
+     /**
+     * Searches for a book in the library by title or ISBN.
+     *
+     * @param searchTerm The title or ISBN to search for
+     * @return the matching Book object, or null if not found
+     */
+    public Book searchBook(String searchTerm) {
+        for (Book book : books) {
+            if (book.getTitle().equalsIgnoreCase(searchTerm) ||
+                book.getISBN().equalsIgnoreCase(searchTerm)) {
+                return book;
+            }
+        }
+        return null;
+    }
+    
     /**
      * Displays all books in the library.
      * If the library is empty, prints a message indicating no books are available.
