@@ -39,6 +39,24 @@ public class Library {
     }
     
     /**
+     * Removes a book from the library using its ISBN.
+     *
+     * @param isbn The ISBN of the book to remove
+     * @return true if the book was found and removed, false otherwise
+     */
+    public boolean removeBook(String isbn) {
+        for (Book book : books) {
+            if (book.getISBN().equalsIgnoreCase(isbn)) {
+                books.remove(book);
+                System.out.println("Book removed: " + book.getTitle());
+                return true;
+            }
+        }
+        System.out.println("Book with ISBN " + isbn + " not found.");
+        return false;
+    }
+
+    /**
      * Displays all books in the library.
      * If the library is empty, prints a message indicating no books are available.
      */
