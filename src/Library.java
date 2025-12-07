@@ -22,7 +22,7 @@ public class Library {
 
     // METHODS
 
-     /**
+    /**
      * Searches for a book in the library by title or ISBN.
      *
      * @param searchTerm The title or ISBN to search for
@@ -57,11 +57,6 @@ public class Library {
     }
 
     /**
-     * Displays all books in the library.
-     * If the library is empty, prints a message indicating no books are available.
-     */
-
-    /**
      * Adds a book to the library collection.
      *
      * @param book The Book object to add
@@ -71,6 +66,10 @@ public class Library {
         System.out.println("Book added: " + book.getTitle());
     }
     
+    /**
+     * Displays all books in the library.
+     * If the library is empty, prints a message indicating no books are available.
+     */
     public void displayBooks() {
         if (books.isEmpty()) {
             System.out.println("No books in the library");
@@ -119,42 +118,47 @@ public class Library {
             System.out.println("Error reading file: " + e.getMessage());
         }
     }
-    /**
- * Checks out a book by ISBN.
- * Sets the book's availability to false.
- */
-public void checkOutBook(String ISBN) {
-    for (Book book : books) {
-        if (book.getISBN().equalsIgnoreCase(ISBN)) {
-            if (book.isAvailable()) {
-                book.setAvailable(false);
-                System.out.println("You checked out: " + book.getTitle());
-            } else {
-                System.out.println("That book is already checked out.");
-            }
-            return;
-        }
-    }
-    System.out.println("Book not found.");
-}
 
-/**
- * Returns a book by ISBN.
- * Sets the book's availability to true.
- */
-public void returnBook(String ISBN) {
-    for (Book book : books) {
-        if (book.getISBN().equalsIgnoreCase(ISBN)) {
-            if (!book.isAvailable()) {
-                book.setAvailable(true);
-                System.out.println("You returned: " + book.getTitle());
-            } else {
-                System.out.println("This book was not checked out.");
+    /**
+     * Checks out a book by ISBN.
+     * Sets the book's availability to false.
+     *
+     * @param ISBN The ISBN of the book to check out
+     */
+    public void checkOutBook(String ISBN) {
+        for (Book book : books) {
+            if (book.getISBN().equalsIgnoreCase(ISBN)) {
+                if (book.isAvailable()) {
+                    book.setAvailable(false);
+                    System.out.println("You checked out: " + book.getTitle());
+                } else {
+                    System.out.println("That book is already checked out.");
+                }
+                return;
             }
-            return;
         }
+        System.out.println("Book not found.");
     }
-    System.out.println("Book not found.");
-}
+
+    /**
+     * Returns a book by ISBN.
+     * Sets the book's availability to true.
+     *
+     * @param ISBN The ISBN of the book to return
+     */
+    public void returnBook(String ISBN) {
+        for (Book book : books) {
+            if (book.getISBN().equalsIgnoreCase(ISBN)) {
+                if (!book.isAvailable()) {
+                    book.setAvailable(true);
+                    System.out.println("You returned: " + book.getTitle());
+                } else {
+                    System.out.println("This book was not checked out.");
+                }
+                return;
+            }
+        }
+        System.out.println("Book not found.");
+    }
 }
 
